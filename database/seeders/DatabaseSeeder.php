@@ -20,10 +20,42 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name'  => 'saber',
             'email' => 'saber@tds.com',
+            'type'  => 'admin',
         ]);
+        
         $this->command->info("\n" . '.... Seeding SABER completed successfully!');
 
-        User::factory(5)->create();
+        User::factory()->createMany([
+            ['name'  => 'انس خليل أبو صبحة', 'type' => 'student'],
+            ['name'  => 'ايمن توفيق أبو دقه', 'type' => 'student'],
+            ['name'  => 'أسامة خليل أبو صبحة', 'type' => 'student'],
+            ['name'  => 'أسامة شادي قديح', 'type' => 'student'],
+            ['name'  => 'حمزة احمد أبو دقه', 'type' => 'student'],
+            ['name'  => 'خليل احمد أبو ظريفة', 'type' => 'student'],
+            ['name'  => 'عبد الباري توفيق أبو دقه', 'type' => 'student'],
+            ['name'  => 'محمد احمد أبو ظريفة', 'type' => 'student'],
+            ['name'  => 'محمود حمزة قديح', 'type' => 'student'],
+            ['name'  => 'ياسين شادي قديح', 'type' => 'student'],
+            ['name'  => 'يوسف عبدالله أبو عليان', 'type' => 'student'],
+            ['name'  => 'محمد إسماعيل أبو دقه', 'type' => 'student'],
+            ['name'  => 'معتصم بالله حسن أبو عليان', 'type' => 'student'],
+            ['name'  => 'محمد جبريل أبو دقه', 'type' => 'student'],
+            ['name'  => 'براء شلدي قديح', 'type' => 'student'],
+            ['name'  => 'محمد عبد الله أبو دقه', 'type' => 'student'],
+            ['name'  => 'اسيد محمود أبو دقه', 'type' => 'student'],
+            ['name'  => 'زياد رامز النجار', 'type' => 'student'],
+            ['name'  => 'لوئ خليل أبو صبحة', 'type' => 'student'],
+            ['name'  => 'عبد الرحمن عبدالله أبو دقه', 'type' => 'student'],
+            ['name'  => 'قصي اكرم أبو دقه', 'type' => 'student'],
+            ['name'  => 'اكرم احمد أبو عليان', 'type' => 'student'],
+            ['name'  => 'محمد إبراهيم أبو عليان', 'type' => 'student'],
+            ['name'  => 'فيس حسن أبو عليان', 'type' => 'student'],
+            ['name'  => 'براء ياسر قديح', 'type' => 'student'],
+            ['name'  => 'اويس ياسر قديح', 'type' => 'student'],
+            ['name'  => 'محمد اكرم أبو عليان', 'type' => 'student'],
+            ['name'  => 'أسامة احمد أبو دقه', 'type' => 'student'],
+            ['name'  => 'ابراهبم هاني أبو دقه', 'type' => 'student'],
+        ]);
         $this->command->info("\n" . '.... Seeding USERS completed successfully!');
 
         Activity::factory()->createMany([
@@ -73,7 +105,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITY_OPTIONS completed successfully!');
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 1000; $i++) {
             try {
                 Point::factory(1)->create();
             } catch (\Throwable $th) {

@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const TYPES = ['student', 'teacher', 'admin'];
+
     /**
      * The attributes that are mass assignable.
      *
