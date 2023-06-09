@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class AddUser extends Component
@@ -22,7 +23,7 @@ class AddUser extends Component
         'user.name'             => 'required|min:5',
         'user.email'            => 'required|email|unique:users,email|regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
         'user.type'             => 'required|in:student,teacher',
-        'user.date_of_birth'    => 'required|date|before_or_equal:-5 years',
+        'user.date_of_birth'    => 'nullable|date|before_or_equal:-5 years',
         // 'user.mobile_number'    => 'required|numeric|digits:12',
         // 'user.gender'           => 'required|in:male,female',
         'user.status'           => 'nullable|boolean',
@@ -49,6 +50,11 @@ class AddUser extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+
+    public function updatedUser()
+    {
+        $this->user->email = $this->user->name ? Str::slug($this->user->name) . '@gmail.com' : '';
     }
 
     public function saveUser()
