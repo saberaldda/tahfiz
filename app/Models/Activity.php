@@ -11,6 +11,11 @@ class Activity extends Model
 
     protected $guarded = [];
 
+    public function options()
+    {
+        return $this->hasMany(ActivityOption::class);
+    }
+
     public function points()
     {
         return $this->hasMany(Point::class);

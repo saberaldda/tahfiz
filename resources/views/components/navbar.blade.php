@@ -2,9 +2,9 @@
     <div class="app-brand demo">
         <a href="{{ route('dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="{{ asset('assets/admin/img/favicon/albayan.svg') }}" width="60px" height="70px" alt="Nour albayan academy">
+                <img src="{{ asset('assets/admin/img/favicon/omar.png') }}" width="60px" height="70px" alt="مركز تحفيظ عمر بن الخطاب">
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-3 text-capitalize">{{ __('Al Bayan') }}</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-3 text-capitalize">مركز تحفيظ <br>عمر بن الخطاب</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -45,52 +45,9 @@
                         <div data-i18n="add-new-user">{{ __('Add New User') }}</div>
                     </a>
                 </li>
-            </ul>
-        </li>
-        <!-- Paths -->
-        {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">{{ __('Paths') }}</span></li> --}}
-        <li class="menu-item {{ str_contains(request()->url(), 'paths') ? 'open active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Paths">{{ __('Paths') }}</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item {{ request()->routeIs('paths.index') ? 'active' : '' }}">
-                    <a href="{{ route('paths.index') }}" class="menu-link">
-                        <div data-i18n="Paths">{{ __('All Paths') }}</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    @if (request()->routeIs('paths.index'))
-                        <a href="javascript:void(0);" class="menu-link" data-bs-toggle="modal" data-bs-target="#addPath">
-                    @else
-                        <a href="{{ route('paths.index') }}" class="menu-link">
-                    @endif
-                        <div data-i18n="add-new-path">{{ __('Add New Path') }}</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!-- Courses -->
-        {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">{{ __('Courses') }}</span></li> --}}
-        <li class="menu-item {{ str_contains(request()->url(), 'courses') ? 'open active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Courses">{{ __('Courses') }}</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item {{ request()->routeIs('courses.index') ? 'active' : '' }}">
-                    <a href="{{ route('courses.index') }}" class="menu-link">
-                        <div data-i18n="Courses">{{ __('All Courses') }}</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    @if (request()->routeIs('courses.index'))
-                        <a href="javascript:void(0);" class="menu-link" data-bs-toggle="modal" data-bs-target="#addCourse">
-                    @else
-                        <a href="{{ route('courses.index') }}" class="menu-link">
-                    @endif
-                        <div data-i18n="add-new-course">{{ __('Add New Course') }}</div>
+                <li class="menu-item {{ request()->routeIs('users.evaluation') ? 'active' : '' }}">
+                        <a href="{{ route('users.evaluation') }}" class="menu-link">
+                        <div data-i18n="add-new-user">{{ __('اضافة تقييم') }}</div>
                     </a>
                 </li>
             </ul>

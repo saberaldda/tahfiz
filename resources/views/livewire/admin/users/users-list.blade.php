@@ -59,9 +59,9 @@
                         <tr>
                             <th>{{ __('Photo') }}</th>
                             <th>{{ __('Name') }}</th>
-                            <th>{{ __('Email') }}</th>
+                            {{-- <th>{{ __('Email') }}</th> --}}
+                            <th>{{ __('النقاط') }}</th>
                             <th>{{ __('User Type') }}</th>
-                            {{-- <th>{{ __('Mobile') }}</th> --}}
                             <th>{{ __('Status') }}</th>
                             <th>{{ __('Create Date') }}</th>
                             <th>{{ __('Actions') }}</th>
@@ -79,12 +79,12 @@
                                     </ul>
                                 </td>
                                 <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}">{{ $user->name }}</td>
-                                <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}"><strong>{{ $user->email }}</strong></td>
+                                {{-- <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}"><strong>{{ $user->email }}</strong></td> --}}
+                                <td>{{ $user->points_count }}</td>
                                 <td><span class="badge bg-label-{{ ($user->type == "admin") ? "danger" : (($user->type == "teacher") ? "success" : "info") }} me-1">
                                     <strong>{{ __($user->type) }}</strong>
                                     </span>
                                 </td>
-                                <td>{{ $user->mobile_number }}</td>
                                 <td>
                                     <button wire:click="changeStatus({{ $user->id }})" class="cursor-pointer btn btn-sm bg-label-{{ $user->status ? 'primary' : 'danger' }} me-1" type="button"
                                         onclick="return confirm('{{ __('Are you sure you want to change the user status?') }}') 
@@ -99,6 +99,10 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ route('users.evaluation') }}">
+                                                <i class="bx bx-edit-alt me-1"></i>
+                                                {{ __('اضافة تقييم') }}
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('users.edit', ['user' => $user->id]) }}">
                                                 <i class="bx bx-edit-alt me-1"></i>
                                                 {{ __('Edit') }}

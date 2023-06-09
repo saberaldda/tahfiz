@@ -24,4 +24,9 @@ class UserController extends Controller
             'user'      => $user,
         ]);
     }
+
+    public function evaluation()
+    {
+        return view('admin.users.evaluation');
+    }
 }

@@ -42,7 +42,7 @@
         <div class="row g-2">
             <div class="col mb-0">
                 <label for="DOBWithTitle" class="form-label">{{ __('Birth date') }}</label>
-                <input wire:model="user.date_of_birth" type="date" min="5" max="99" lang="en" id="DOBWithTitle" class="form-control" placeholder=".." />
+                <input wire:model="user.date_of_birth" type="date" id="DOBWithTitle" class="form-control" placeholder=".." />
                 @error('user.date_of_birth') <span class="text-danger error">{{ $message }}</span>@enderror
             </div>
             {{-- <div class="col mb-0">

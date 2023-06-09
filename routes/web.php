@@ -24,7 +24,8 @@ Route::get('en', function() {
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
-return view('dashboard');
+// return view('dashboard');
+return redirect()->route('users.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -47,6 +48,7 @@ Route::prefix('admin')
         // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         // Users
         Route::resource('users', UserController::class)->only('index', 'edit');
+        Route::get('users/evaluation', [UserController::class, 'evaluation'])->name('users.evaluation');
         // Courses
         Route::resource('courses', CourseController::class)->only('index', 'edit');
         // Paths

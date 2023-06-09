@@ -7,7 +7,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-        <title>@yield('title',__('Nour AL Bayan Academy'))</title>
+        <title>@yield('title',__('مركز تحفيظ عمر بن الخطاب'))</title>
 
         <meta name="description" content="" />
 

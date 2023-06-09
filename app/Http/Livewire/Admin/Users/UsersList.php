@@ -35,8 +35,8 @@ class UsersList extends Component
 
     public function render()
     {
-        $users = User::
-        when($this->type, function ($query) {
+        $users = User::withCount('points')
+        ->when($this->type, function ($query) {
             $query->where('type', $this->type);
         })
         ->when(($this->status !== '' && $this->status !== null), function ($query) {

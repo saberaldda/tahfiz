@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             ['name'  => 'قصي اكرم أبو دقه', 'type' => 'student'],
             ['name'  => 'اكرم احمد أبو عليان', 'type' => 'student'],
             ['name'  => 'محمد إبراهيم أبو عليان', 'type' => 'student'],
-            ['name'  => 'فيس حسن أبو عليان', 'type' => 'student'],
+            ['name'  => 'قيس حسن أبو عليان', 'type' => 'student'],
             ['name'  => 'براء ياسر قديح', 'type' => 'student'],
             ['name'  => 'اويس ياسر قديح', 'type' => 'student'],
             ['name'  => 'محمد اكرم أبو عليان', 'type' => 'student'],
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             ['name'  => 'الحضور'],
             ['name'  => 'التسميع'],
             ['name'  => 'جلسة الخميس'],
-            ['name'  => 'جلسة العشاء'],
+            ['name'  => 'رياض الصالحين'],
             ['name'  => 'تسميع اكثر من صفحة'],
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITIES completed successfully!');
@@ -76,16 +76,16 @@ class DatabaseSeeder extends Seeder
             ['activity_id'  => 1, 'name' => 'صلى', 'points' => 10],
             ['activity_id'  => 1, 'name' => 'لم يصلي', 'points' => 0],
 
-            ['activity_id'  => 2, 'name' => 'صلى', 'points' => 10],
+            ['activity_id'  => 2, 'name' => 'صلى', 'points' => 5],
             ['activity_id'  => 2, 'name' => 'لم يصلي', 'points' => 0],
 
-            ['activity_id'  => 3, 'name' => 'صلى', 'points' => 10],
+            ['activity_id'  => 3, 'name' => 'صلى', 'points' => 5],
             ['activity_id'  => 3, 'name' => 'لم يصلي', 'points' => 0],
 
-            ['activity_id'  => 4, 'name' => 'صلى', 'points' => 10],
+            ['activity_id'  => 4, 'name' => 'صلى', 'points' => 5],
             ['activity_id'  => 4, 'name' => 'لم يصلي', 'points' => 0],
 
-            ['activity_id'  => 5, 'name' => 'صلى', 'points' => 10],
+            ['activity_id'  => 5, 'name' => 'صلى', 'points' => 5],
             ['activity_id'  => 5, 'name' => 'لم يصلي', 'points' => 0],
             
             ['activity_id'  => 6, 'name' => 'حاضر', 'points' => 5],
@@ -102,15 +102,18 @@ class DatabaseSeeder extends Seeder
             ['activity_id'  => 9, 'name' => 'حاضر', 'points' => 5],
             ['activity_id'  => 9, 'name' => 'غائب', 'points' => 0],
 
+            ['activity_id'  => 10, 'name' => 'زيادة', 'points' => 10],
+            ['activity_id'  => 10, 'name' => 'يدون زيادة', 'points' => 0],
+
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITY_OPTIONS completed successfully!');
 
-        for ($i = 0; $i < 1000; $i++) {
-            try {
-                Point::factory(1)->create();
-            } catch (\Throwable $th) {
-            }
-        }
+        // for ($i = 0; $i < 1000; $i++) {
+        //     try {
+        //         Point::factory(1)->create();
+        //     } catch (\Throwable $th) {
+        //     }
+        // }
         $this->command->info("\n" . '.... Seeding POINTS completed successfully!');
 
     }
