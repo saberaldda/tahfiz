@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             ['name'  => 'محمد إسماعيل أبو دقه', 'type' => 'student'],
             ['name'  => 'معتصم بالله حسن أبو عليان', 'type' => 'student'],
             ['name'  => 'محمد جبريل أبو دقه', 'type' => 'student'],
-            ['name'  => 'براء شلدي قديح', 'type' => 'student'],
+            ['name'  => 'براء شادي قديح', 'type' => 'student'],
             ['name'  => 'محمد عبد الله أبو دقه', 'type' => 'student'],
             ['name'  => 'اسيد محمود أبو دقه', 'type' => 'student'],
             ['name'  => 'زياد رامز النجار', 'type' => 'student'],

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Point;
+use App\Http\Controllers\Controller;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
-class PointController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class PointController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Point $point)
+    public function show(Activity $activity)
     {
         //
     }
@@ -42,7 +43,7 @@ class PointController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Point $point)
+    public function edit(Activity $activity)
     {
         //
     }
@@ -50,7 +51,7 @@ class PointController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Point $point)
+    public function update(Request $request, Activity $activity)
     {
         //
     }
@@ -58,7 +59,7 @@ class PointController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Point $point)
+    public function destroy(Activity $activity)
     {
         //
     }

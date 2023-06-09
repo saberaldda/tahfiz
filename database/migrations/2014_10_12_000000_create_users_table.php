@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->enum('type', User::TYPES);
             $table->string('photo')->nullable();
+            $table->string('date_of_birth');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('status')->default(true);
+            $table->text('note');
             $table->rememberToken();
             $table->timestamps();
         });

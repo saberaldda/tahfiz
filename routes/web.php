@@ -1,18 +1,30 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Lang
+Route::get('ar', function() {
+    session(['locale' => 'ar']);
+    return back();
+})->name('ar');
+
+Route::get('en', function() {
+    session(['locale' => 'en']);
+    return back();
+})->name('en');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -33,8 +45,8 @@ Route::prefix('admin')
         // Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         // // Dashboard
         // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        // // Users
-        // Route::resource('users', UserController::class)->only('index', 'edit');
+        // Users
+        Route::resource('users', UserController::class)->only('index', 'edit');
         // Courses
         Route::resource('courses', CourseController::class)->only('index', 'edit');
         // Paths

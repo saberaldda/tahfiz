@@ -45,6 +45,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function getFullPhotoPathAttribute()
+    {
+        if (!$this->photo) {
+            return asset('https://via.placeholder.com/400x400.png/89edff?text=Placeholder');
+        }
+        if (stripos($this->photo, 'http') === 0) {
+            return $this->photo;
+        }
+        return asset(url('storage/'). '/' . $this->photo);
+    }
+
     public function points()
     {
         return $this->hasMany(Point::class);
