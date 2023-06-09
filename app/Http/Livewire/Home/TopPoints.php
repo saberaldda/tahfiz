@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Home;
 use App\Models\User;
 use Livewire\Component;
 
-class ShowOrder extends Component
+class TopPoints extends Component
 {
     public function render()
     {
@@ -15,6 +15,6 @@ class ShowOrder extends Component
         ->get();
 
 
-        return view('livewire.home.show-order', compact('users'));
+        return view('livewire.home.top-points', compact('users'));
     }
 }
