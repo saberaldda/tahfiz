@@ -22,6 +22,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'saber@tds.com',
             'type'  => 'admin',
         ]);
+        User::factory()->create([
+            'name'      => 'admin',
+            'email'     => 'admin@gmail.com',
+            'type'      => 'admin',
+            'password'  => bcrypt('12345678'),
+        ]);
         
         $this->command->info("\n" . '.... Seeding SABER completed successfully!');
 

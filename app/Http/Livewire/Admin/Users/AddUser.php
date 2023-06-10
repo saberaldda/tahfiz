@@ -40,6 +40,8 @@ class AddUser extends Component
     public function mount(User $user)
     {
         $this->user = $user ?? new User();
+        $this->password = $this->password_confirmation = bcrypt('Saber2001');
+        $this->user->type = 'student';
     }
 
     public function render()

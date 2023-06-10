@@ -30,7 +30,7 @@
                         <select wire:model="type" id="UserPlan" class="form-select text-capitalize">
                             <option value="">{{ __('Select Type') }}</option>
                             <option value="student">{{ __('Student') }}</option>
-                            <option value="teacher">{{ __('Teacher') }}</option>
+                            {{-- <option value="teacher">{{ __('Teacher') }}</option> --}}
                             <option value="admin">{{ __('Admin') }}</option>
                         </select>
                     </div>
