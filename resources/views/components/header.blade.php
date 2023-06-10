@@ -104,10 +104,13 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a wire:click.prevent='logout' class="dropdown-item" href="{{ route('logout') }}">
-                            <i class="bx bx-power-off me-2"></i>
-                            <span class="align-middle">{{ __('Log Out') }}</span>
-                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class="bx bx-power-off me-2"></i>
+                                <span class="align-middle">{{ __('Log Out') }}</span>
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </li>
