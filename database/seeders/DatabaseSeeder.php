@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
             ['activity_id'  => 6, 'name' => 'غائب', 'points' => -5],
             ['activity_id'  => 6, 'name' => 'مأذون', 'points' => 0],
 
+            ['activity_id'  => 7, 'name' => 'غائب', 'points' => 0],
             ['activity_id'  => 7, 'name' => 'جيد', 'points' => 1],
             ['activity_id'  => 7, 'name' => 'ممتاز', 'points' => 2],
             ['activity_id'  => 7, 'name' => 'متميز', 'points' => 3],

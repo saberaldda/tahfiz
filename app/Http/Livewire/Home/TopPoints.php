@@ -9,11 +9,18 @@ class TopPoints extends Component
 {
     public function render()
     {
-        $users = User::withCount('points')
+        $users = User::with('points')
         ->where('type', 'student')
-        ->orderByDesc('points_count')
-        ->get();
-
+        ->get()
+        ->map(function ($user) {
+            $total_points = $user->points->sum(function ($point) {
+                return $point->activityOption->points;
+            });
+    
+            $user->total_points = $total_points;
+            return $user;
+        })
+        ->sortByDesc('total_points');
 
         return view('livewire.home.top-points', compact('users'));
     }

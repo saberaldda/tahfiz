@@ -7,7 +7,7 @@
                 <img class="w-20 h-20 rounded-full" src="{{ $user->full_photo_path }}" alt="Rounded avatar" />
                 <p class="font-semibold text-4xl me-2">{{ $user->name }}</p>
             </div>
-            <p class="font-medium text-4xl text-gray-600">{{ $user->points_count }} نقطة</p>
+            <p class="font-medium text-4xl text-gray-600">{{ $user->total_points }} نقطة</p>
         </div>
     </div>
     @endforeach
