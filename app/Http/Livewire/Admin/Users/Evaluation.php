@@ -76,6 +76,6 @@ class Evaluation extends Component
         $this->reset(['user', 'activityOptions']);
     }
 
-    // the dublcation entry
-    // tost
+    // the duplication entry
+    // tost  
 }
