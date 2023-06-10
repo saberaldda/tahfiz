@@ -15,7 +15,7 @@
         </div>
         <div class="row g-2">
             <div class="col mb-0">
-                <label for="Date" class="form-label">{{ __('Birth date') }}</label>
+                <label for="Date" class="form-label">{{ __('اليوم') }}</label>
                 <input wire:model="date" type="date" id="Date" class="form-control" placeholder=".." required/>
                 @error('date') <span class="text-danger error">{{ $message }}</span>@enderror
             </div>
