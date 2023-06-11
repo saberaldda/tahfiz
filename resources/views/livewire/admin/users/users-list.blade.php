@@ -80,7 +80,7 @@
                                 </td>
                                 <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}">{{ $user->name }}</td>
                                 {{-- <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}"><strong>{{ $user->email }}</strong></td> --}}
-                                <td>{{ $user->points_count }}</td>
+                                <td>{{ $user->total_points }}</td>
                                 <td><span class="badge bg-label-{{ ($user->type == "admin") ? "danger" : (($user->type == "teacher") ? "success" : "info") }} me-1">
                                     <strong>{{ __($user->type) }}</strong>
                                     </span>

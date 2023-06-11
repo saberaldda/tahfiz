@@ -49,8 +49,23 @@ class UsersList extends Component
                         //  ->orWhere('mobile_number', 'like', "%$this->search%");
             });
         })
-        ->orderByDesc('id')
-        ->paginate(10);
+        ->get()
+        ->map(function ($user) {
+            $total_points = $user->points->sum(function ($point) {
+                return $point->activityOption->points;
+            });
+    
+            $user->total_points = $total_points;
+            return $user;
+        })
+        ->sortByDesc('total_points');
+
+        $perPage = 10;
+        $page = \Illuminate\Pagination\Paginator::resolveCurrentPage('page');
+        $users = new \Illuminate\Pagination\LengthAwarePaginator(
+    $users->forPage($page, $perPage), $users->count(), $perPage, $page,
+    ['path' => \Illuminate\Pagination\Paginator::resolveCurrentPath()]
+);
 
         return view('livewire.admin.users.users-list', compact('users'));
     }
