@@ -15,6 +15,11 @@ class Point extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function activity()
+    {
+        return $this->belongsTo(Activity::class);
+    }
 
     public function activityOption()
     {

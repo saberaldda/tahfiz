@@ -72,9 +72,9 @@ class DatabaseSeeder extends Seeder
             ['name'  => 'العشاء'],
             ['name'  => 'الحضور'],
             ['name'  => 'التسميع'],
-            ['name'  => 'جلسة الخميس'],
-            ['name'  => 'رياض الصالحين'],
             ['name'  => 'تسميع اكثر من صفحة'],
+            ['name'  => 'رياض الصالحين'],
+            ['name'  => 'جلسة الخميس'],
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITIES completed successfully!');
 
@@ -102,15 +102,15 @@ class DatabaseSeeder extends Seeder
             ['activity_id'  => 7, 'name' => 'جيد', 'points' => 1],
             ['activity_id'  => 7, 'name' => 'ممتاز', 'points' => 2],
             ['activity_id'  => 7, 'name' => 'متميز', 'points' => 3],
-            
-            ['activity_id'  => 8, 'name' => 'حاضر', 'points' => 7],
-            ['activity_id'  => 8, 'name' => 'غائب', 'points' => 0],
+
+            ['activity_id'  => 8, 'name' => 'زيادة', 'points' => 10],
+            ['activity_id'  => 8, 'name' => 'يدون زيادة', 'points' => 0],
             
             ['activity_id'  => 9, 'name' => 'حاضر', 'points' => 5],
             ['activity_id'  => 9, 'name' => 'غائب', 'points' => 0],
-
-            ['activity_id'  => 10, 'name' => 'زيادة', 'points' => 10],
-            ['activity_id'  => 10, 'name' => 'يدون زيادة', 'points' => 0],
+            
+            ['activity_id'  => 10, 'name' => 'حاضر', 'points' => 7],
+            ['activity_id'  => 10, 'name' => 'غائب', 'points' => 0],
 
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITY_OPTIONS completed successfully!');

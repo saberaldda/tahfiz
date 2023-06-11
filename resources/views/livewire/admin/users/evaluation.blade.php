@@ -4,7 +4,7 @@
         <div class="row g-2">
             <div class="col mb-0">
                 <label for="user" class="form-label">{{ __('الطالب') }}</label>
-                <select wire:model="user" id="user" class="form-select text-capitalize" required>
+                <select wire:model="user" id="user" class="form-select text-capitalize">
                     <option value=""> اختر </option>
                     @foreach ($usersList as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -16,17 +16,17 @@
         <div class="row g-2">
             <div class="col mb-0">
                 <label for="Date" class="form-label">{{ __('اليوم') }}</label>
-                <input wire:model="date" type="date" id="Date" class="form-control" placeholder=".." required/>
+                <input wire:model="date" type="date" id="Date" class="form-control" placeholder=".."/>
                 @error('date') <span class="text-danger error">{{ $message }}</span>@enderror
             </div>
         </div>
         <div class="row g-2">
             <div class="col mb-0">
-            @foreach ($activities as $activity)
+            @foreach ($activitiesList as $activity)
                 <label for="activity{{ $activity->id }}" class="form-label">{{ $activity->name }}</label>
-                <select wire:model="activityOptions.{{ $activity->id }}" id="activity{{ $activity->id }}" class="form-select text-capitalize" required>
+                <select wire:model="activityOptions.{{ $activity->id }}" id="activity{{ $activity->id }}" class="form-select text-capitalize">
                     <option value=""> اختر </option>
-                    @foreach ($activity->options as $option)
+                    @foreach ($activity->activityOptions as $option)
                         <option value="{{ $option->id }}">{{ $option->name }} : {{ $option->points }} نقاط</option>
                     @endforeach
                 </select>

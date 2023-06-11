@@ -15,4 +15,9 @@ class ActivityOption extends Model
     {
         return $this->belongsTo(Activity::class);
     }
+    
+    public function points()
+    {
+        return $this->hasMany(Point::class);
+    }
 }

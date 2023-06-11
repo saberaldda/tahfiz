@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('points', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('activity_id')->constrained('activities')->cascadeOnDelete();
             $table->foreignId('activity_option_id')->constrained('activity_options')->cascadeOnDelete();
             $table->date('date');
             $table->timestamps();
             // Add unique constraint
-            $table->unique(['user_id', 'activity_option_id', 'date']);
+            $table->unique(['user_id', 'activity_id', 'date']);
         });
     }
 
