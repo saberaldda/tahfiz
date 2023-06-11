@@ -29,8 +29,11 @@ class Evaluation extends Component
 
     public function usersList()
     {
+        $date = $this->date;
 
-        $usersList = $this->usersList = User::withCount('points')
+        $usersList = $this->usersList = User::withCount(['points' => function ($query) use ($date) {
+            $query->where('date', $date);
+        }])
         ->where('type', 'student')
         ->havingRaw('points_count < (SELECT COUNT(*) FROM activities)')
         ->when(!Carbon::parse($this->date)->isThursday(), function ($query) {
@@ -69,11 +72,6 @@ class Evaluation extends Component
         return $activitiesList;
     }
 
-    public function updatedDate()
-    {
-        $this->usersList = $this->usersList();
-    }
-
     public function render()
     {
         $usersList = $this->usersList();
@@ -88,6 +86,11 @@ class Evaluation extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+    
+    public function updatedDate()
+    {
+        $this->usersList = $this->usersList();
     }
 
     public function addEvaluation()
