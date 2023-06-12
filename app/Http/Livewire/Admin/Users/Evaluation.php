@@ -46,7 +46,7 @@ class Evaluation extends Component
 
     public function activitiesList()
     {
-        $activity_id = 10;
+        $activity_id = 10;  // for جلسة الخميس
         $date = $this->date;
 
         if (!$this->user) {
@@ -100,19 +100,18 @@ class Evaluation extends Component
 
         // Create points for the selected options
         foreach ($this->activityOptions as $activityId => $activityOptionId) {
-            $option = ActivityOption::findOrFail($activityOptionId);
-            $user->points()->create([
-                'activity_id'   => $activityId,
-                'activity_option_id' => $option->id,
-                'date' => $this->date,
-            ]);
+            if (!empty($activityOptionId)) {
+                $option = ActivityOption::findOrFail($activityOptionId);
+                $user->points()->create([
+                    'activity_id'   => $activityId,
+                    'activity_option_id' => $option->id,
+                    'date' => $this->date,
+                ]);
+            }
         }
 
         session()->flash('success', __("New user added successfully."));
         // Reset the form
         $this->reset(['user', 'activityOptions']);
     }
-
-     // جلسة الخميس
-    // 
 }
