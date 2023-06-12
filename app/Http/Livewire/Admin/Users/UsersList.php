@@ -19,6 +19,7 @@ class UsersList extends Component
 
     public function mount()
     {
+        $this->type = 'student';
     }
     
     public function updated()
@@ -60,6 +61,7 @@ class UsersList extends Component
         })
         ->sortByDesc('total_points');
 
+        // pagination info
         $perPage = 10;
         $page = \Illuminate\Pagination\Paginator::resolveCurrentPage('page');
         $users = new \Illuminate\Pagination\LengthAwarePaginator(
