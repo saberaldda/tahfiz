@@ -61,6 +61,31 @@ class DatabaseSeeder extends Seeder
             ['name'  => 'محمد اكرم أبو عليان', 'type' => 'student'],
             ['name'  => 'أسامة احمد أبو دقه', 'type' => 'student'],
             ['name'  => 'ابراهبم هاني أبو دقه', 'type' => 'student'],
+            ['name'  => 'يوسف وسام أبو دقه', 'type' => 'student'],
+            ['name'  => 'محمد ساهر أبو دقه', 'type' => 'student'],
+            ['name'  => 'عبد الرحمن صهيب أبو عليان', 'type' => 'student'],
+            ['name'  => 'ايهم عبد ربه أبو عليان', 'type' => 'student'],
+            ['name'  => 'احمد هاني قديح', 'type' => 'student'],
+            ['name'  => 'فراس نائل قديح', 'type' => 'student'],
+            ['name'  => 'محمد صلاح أبو دقه', 'type' => 'student'],
+            ['name'  => 'إبراهيم مدحت أبو دقه', 'type' => 'student'],
+            ['name'  => 'عبيده صهيب أبو عليان', 'type' => 'student'],
+            ['name'  => 'فراس إسماعيل أبو دقه', 'type' => 'student'],
+            ['name'  => 'عمر محمد أبو عليان', 'type' => 'student'],
+            ['name'  => 'زياد طارق أبو دقه', 'type' => 'student'],
+            ['name'  => 'رامز سالم قديح', 'type' => 'student'],
+            ['name'  => 'رائد محمد أبو صبحة', 'type' => 'student'],
+            ['name'  => 'محمود محمد أبو صبحة', 'type' => 'student'],
+            ['name'  => 'يوسف عدي أبو عليان', 'type' => 'student'],
+            ['name'  => 'ادم نبيل أبو دقه', 'type' => 'student'],
+            ['name'  => 'عبدالله عمار قديح', 'type' => 'student'],
+            ['name'  => 'يزن رامز النجار', 'type' => 'student'],
+            ['name'  => 'عبداللطيف حسين قديح', 'type' => 'student'],
+            ['name'  => 'مصعب إبراهيم أبو مصطفى', 'type' => 'student'],
+            ['name'  => 'براء زهير المصري', 'type' => 'student'],
+            ['name'  => 'شرف الدين زهير المصري', 'type' => 'student'],
+            ['name'  => 'إبراهيم هيثم شراب ', 'type' => 'student'],
+            // ['name'  => '', 'type' => 'student'],
         ]);
         $this->command->info("\n" . '.... Seeding USERS completed successfully!');
 
@@ -115,13 +140,13 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITY_OPTIONS completed successfully!');
 
-        // for ($i = 0; $i < 1000; $i++) {
+        // for ($i = 0; $i < 100000; $i++) {
         //     try {
         //         Point::factory(1)->create();
         //     } catch (\Throwable $th) {
         //     }
         // }
-        $this->command->info("\n" . '.... Seeding POINTS completed successfully!');
+        // $this->command->info("\n" . '.... Seeding POINTS completed successfully!');
 
     }
 }

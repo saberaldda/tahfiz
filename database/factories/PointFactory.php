@@ -20,10 +20,18 @@ class PointFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'               => function () {return User::inRandomOrder()->first()->id;},
-            'activity_id'           => function () {return Activity::inRandomOrder()->first()->id;},
-            'activity_option_id'    => function () {return ActivityOption::inRandomOrder()->first()->id;},
-            'date'                  => $this->faker->dateTimeBetween('-5 days', 'now'),
+            'user_id' => function () {
+                return User::inRandomOrder()->first()->id;
+            },
+            'activity_id' => function () {
+                $activity = Activity::inRandomOrder()->first();
+                return $activity->id;
+            },
+            'activity_option_id' => function (array $attributes) {
+                $activityId = $attributes['activity_id'];
+                return ActivityOption::where('activity_id', $activityId)->inRandomOrder()->first()->id;
+            },
+            'date' => $this->faker->dateTimeBetween('-5 days', 'now'),
         ];
     }
 }
