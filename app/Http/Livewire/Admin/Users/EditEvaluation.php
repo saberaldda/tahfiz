@@ -93,6 +93,7 @@ class EditEvaluation extends Component
 
         // Update points for the selected options
         foreach ($this->activityOptions as $activityId => $activityOptionId) {
+
             if (!empty($activityOptionId)) {
                 $option = ActivityOption::findOrFail($activityOptionId);
                 $user->points()->where('activity_id', $activityId)->update([

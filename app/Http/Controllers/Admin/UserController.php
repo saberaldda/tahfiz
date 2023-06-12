@@ -34,4 +34,9 @@ class UserController extends Controller
     {
         return view('admin.users.edit-evaluation');
     }
+
+    public function showPoints()
+    {
+        return view('admin.users.show-points');
+    }
 }

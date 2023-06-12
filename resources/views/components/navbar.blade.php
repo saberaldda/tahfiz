@@ -55,6 +55,11 @@
                         <div data-i18n="add-new-user">{{ __('تعديل تقييم') }}</div>
                     </a>
                 </li>
+                <li class="menu-item {{ request()->routeIs('users.points.show') ? 'active' : '' }}">
+                    <a href="{{ route('users.points.show') }}" class="menu-link">
+                        <div data-i18n="add-new-user">{{ __('جدول التقييمات') }}</div>
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>
