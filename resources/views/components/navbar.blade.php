@@ -46,8 +46,13 @@
                     </a>
                 </li>
                 <li class="menu-item {{ request()->routeIs('users.evaluation') ? 'active' : '' }}">
-                        <a href="{{ route('users.evaluation') }}" class="menu-link">
+                    <a href="{{ route('users.evaluation') }}" class="menu-link">
                         <div data-i18n="add-new-user">{{ __('اضافة تقييم') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('users.evaluation.edit') ? 'active' : '' }}">
+                    <a href="{{ route('users.evaluation.edit') }}" class="menu-link">
+                        <div data-i18n="add-new-user">{{ __('تعديل تقييم') }}</div>
                     </a>
                 </li>
             </ul>

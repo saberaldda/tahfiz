@@ -49,6 +49,7 @@ Route::prefix('admin')
         // Users
         Route::resource('users', UserController::class)->only('index', 'edit');
         Route::get('users/evaluation', [UserController::class, 'evaluation'])->name('users.evaluation');
+        Route::get('users/evaluation/update', [UserController::class, 'editEvaluation'])->name('users.evaluation.edit');
         // Courses
         Route::resource('courses', CourseController::class)->only('index', 'edit');
         // Paths

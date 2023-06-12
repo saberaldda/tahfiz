@@ -1,4 +1,4 @@
-<form wire:submit.prevent="addEvaluation" method="POST" class="mb-3">
+<form wire:submit.prevent="updateEvaluation" method="POST" class="mb-3">
     <x-toast/>
     <div class="modal-body">
         <div class="row g-2">
@@ -35,7 +35,7 @@
                 <select wire:model="activityOptions.{{ $activity->id }}" id="activity{{ $activity->id }}" class="form-select text-capitalize">
                     <option value=""> اختر </option>
                     @foreach ($activity->activityOptions as $option)
-                        <option value="{{ $option->id }}">{{ $option->name }} : {{ $option->points }} نقاط</option>
+                        <option value="{{ $option->id }}" @@selected(true)>{{ $option->name }} : {{ $option->points }} نقاط</option>
                     @endforeach
                 </select>
                 @if ($loop->iteration == 5)

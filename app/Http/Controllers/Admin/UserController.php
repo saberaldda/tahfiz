@@ -29,4 +29,9 @@ class UserController extends Controller
     {
         return view('admin.users.evaluation');
     }
+    
+    public function editEvaluation()
+    {
+        return view('admin.users.edit-evaluation');
+    }
 }
