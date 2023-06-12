@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('activity_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('points');
+            $table->integer('points');
             $table->timestamps();
         });
     }
