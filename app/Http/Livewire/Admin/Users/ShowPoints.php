@@ -21,16 +21,16 @@ class ShowPoints extends Component
     {
         $users = User::with('points.activity.activityOptions')
         ->where('type', 'student')
-        ->paginate();
+        ->get();
         $activities = Activity::all();
         $points_date = Point::distinct('date')->get('date');
 
         $points = Point::with('activity.activityOptions')
             ->where('user_id', $this->user)
-            ->whereIn('date', $points_date)
-            ->orderByDesc('date')
+            // ->whereIn('date', $points_date)
+            // ->orderByDesc('date')
             ->get()
-            ->groupBy('date', 'desc');
+            ->groupBy('date');
 
         // dd($points_date);
 

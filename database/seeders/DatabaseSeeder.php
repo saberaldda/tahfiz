@@ -123,22 +123,19 @@ class DatabaseSeeder extends Seeder
             ['activity_id'  => 6, 'name' => 'غائب', 'points' => -5],
             ['activity_id'  => 6, 'name' => 'مأذون', 'points' => 0],
 
-            ['activity_id'  => 7, 'name' => 'غائب', 'points' => 0],
+            ['activity_id'  => 7, 'name' => 'لم يسمع', 'points' => 0],
             ['activity_id'  => 7, 'name' => 'جيد', 'points' => 1],
             ['activity_id'  => 7, 'name' => 'ممتاز', 'points' => 2],
             ['activity_id'  => 7, 'name' => 'متميز', 'points' => 3],
 
             ['activity_id'  => 8, 'name' => 'بدون زيادة', 'points' => 0],
-            ['activity_id'  => 8, 'name' => 'صفحة', 'points' => 10],
+            ['activity_id'  => 8, 'name' => 'زيادة', 'points' => 10],
             
             ['activity_id'  => 9, 'name' => 'حاضر', 'points' => 5],
             ['activity_id'  => 9, 'name' => 'غائب', 'points' => 0],
             
             ['activity_id'  => 10, 'name' => 'حاضر', 'points' => 7],
             ['activity_id'  => 10, 'name' => 'غائب', 'points' => 0],
-
-            ['activity_id'  => 8, 'name' => 'صفحتين', 'points' => 20],
-            ['activity_id'  => 8, 'name' => '3 صفحات', 'points' => 30],
 
         ]);
         $this->command->info("\n" . '.... Seeding ACTIVITY_OPTIONS completed successfully!');

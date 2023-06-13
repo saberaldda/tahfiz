@@ -1,4 +1,4 @@
-<div wire:poll.10000ms>
+<div wire:poll.10000ms class="scrolling-div">
     @foreach ($users as $user)
     <div class="bg-[#BD8A36] rounded-lg p-4 mb-7" style="background-image: url({{ asset('assets/back-pattern.png') }})">
         <div class="border rounded-lg p-3 flex justify-between items-center bg-gray-200" dir="rtl">

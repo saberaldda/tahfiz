@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,6 +43,25 @@
       animation-timing-function: linear;
     }
   </style>
+  <style>
+    @keyframes scroll {
+      0% {
+        transform: translateY(0);
+      }
+  
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+  
+    .scrolling-div {
+      animation-name: scroll;
+      animation-duration: 100s;
+      /* Adjust the duration as needed */
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  </style>
   @livewireStyles
 </head>
 
@@ -73,40 +92,4 @@
   </div>
 </body>
 @livewireScripts
-</html> --}}
-
-@extends('layouts.blank')
-
-@section('title', __('لوحة المتفوقين'))
-
-@section('content')
-<body>
-
-  @php
-    $backPatternUrl = asset('assets/back-pattern.png');
-    $shape4Url = asset('assets/shape4.png');
-  @endphp
-
-  <div class="min-h-screen bg-emerald-400 relative removeScroll"
-    style="background-image: url({{ $backPatternUrl }})">
-    <div class="container mx-auto px-5 flex flex-col justify-center max-w-[75%] h-full relative z-10">
-      <div class="sticky top-0 left-0 right-0 z-10 bg-emerald-400 w-full"
-        style="background-image: url({{ $backPatternUrl }})">
-        <p class="text-6xl font-bold text-center mt-5 mb-5"> مركز تحفيظ مسجد عمر بن الخطاب </p>
-        <p class="text-3xl font-bold text-center mt-5 mb-3"> لوحة المتفوقين </p>
-      </div>
-      <!-- items -->
-        @livewire('home.top-points')
-    </div>
-    <div class="fixed bottom-0 left-0 opacity-40 rotateme">
-      <img src="{{ $shape4Url }}" class="" alt="img" />
-    </div>
-    <div class="fixed top-0 right-0 opacity-40 rotateme">
-      <img src="{{ $shape4Url }}" class="" alt="img" />
-    </div>
-  </div>
-</body>
-
-  {{-- @livewire('home.top-points') --}}
-
-@endsection
+</html>
