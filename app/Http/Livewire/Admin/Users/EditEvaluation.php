@@ -47,12 +47,12 @@ class EditEvaluation extends Component
 
     public function activitiesList()
     {
-        $activity_id = 10;
         $date = $this->date;
 
         if (!$this->user) {
             return $activitiesList = [];
         }
+
         $user = User::find($this->user);
 
         $activitiesList = Activity::whereIn('id', function ($query) use ($user, $date) {
@@ -61,7 +61,7 @@ class EditEvaluation extends Component
                 ->where('user_id', $user->id)
                 ->where('date', $date);
         })->get();
-        
+
         return $activitiesList;
     }
 
@@ -88,18 +88,31 @@ class EditEvaluation extends Component
 
     public function updateEvaluation()
     {
-        // dd($this->activityOptions);
         $user = User::findOrFail($this->user);
 
-        // Update points for the selected options
         foreach ($this->activityOptions as $activityId => $activityOptionId) {
+            $option = ActivityOption::find($activityOptionId);
 
-            if (!empty($activityOptionId)) {
-                $option = ActivityOption::findOrFail($activityOptionId);
-                $user->points()->where('activity_id', $activityId)->update([
-                    'activity_option_id' => $option->id,
-                    'date' => $this->date,
-                ]);
+            if ($option) {
+                // Check if the point already exists
+                $point = $user->points()->where('activity_id', $activityId)->first();
+
+                if ($point) {
+                    // Point already exists, update the activity option and date
+                    $point->update([
+                        'activity_option_id' => $option->id,
+                    ]);
+                } else {
+                    // Point doesn't exist, create a new point
+                    $user->points()->create([
+                        'activity_id' => $activityId,
+                        'activity_option_id' => $option->id,
+                        'date' => $this->date,
+                    ]);
+                }
+            } else {
+                // Option is null, delete the relation row if it exists
+                $user->points()->where('activity_id', $activityId)->delete();
             }
         }
 
