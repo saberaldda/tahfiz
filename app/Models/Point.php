@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\PointsDateScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,11 @@ class Point extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new PointsDateScope);
+    }
 
     public function user()
     {

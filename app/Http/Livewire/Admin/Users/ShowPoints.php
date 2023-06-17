@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\Activity;
 use App\Models\Point;
+use App\Models\Scopes\PointsDateScope;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -23,9 +24,9 @@ class ShowPoints extends Component
         ->where('type', 'student')
         ->get();
         $activities = Activity::all();
-        $points_date = Point::distinct('date')->get('date');
+        $points_date = Point::withoutGlobalScope(PointsDateScope::class)->distinct('date')->get('date');
 
-        $points = Point::with('activity.activityOptions')
+        $points = Point::withoutGlobalScope(PointsDateScope::class)->with('activity.activityOptions')
             ->where('user_id', $this->user)
             // ->whereIn('date', $points_date)
             // ->orderByDesc('date')
