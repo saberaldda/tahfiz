@@ -62,6 +62,17 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item {{ str_contains(request()->url(), 'settings') ? 'open active' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Users">{{ __('الاعدادات') }}</div>
+            </a>
+            <li class="menu-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
+                <a href="{{ route('settings.index') }}" class="menu-link">
+                    <div data-i18n="Users">{{ __('قائمة الاعدادات') }}</div>
+                </a>
+            </li>
+        </li>
     </ul>
     
 </aside>

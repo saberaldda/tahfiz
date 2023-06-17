@@ -2,6 +2,7 @@
 
 namespace App\Models\Scopes;
 
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
@@ -13,6 +14,6 @@ class PointsDateScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('date', '>', date('2023-06-16'));
+        $builder->where('date', '>', Setting::get('POINTS_DATE')?? '');
     }
 }

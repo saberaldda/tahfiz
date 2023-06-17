@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Activity;
 use App\Models\ActivityOption;
 use App\Models\Point;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Setting::factory()->createMany([
+            ['key' => 'APP_NAME', 'value' => 'Tahfiz'],
+            ['key' => 'POINTS_DATE', 'value' => '2023-06-16'],
+        ]);
+        $this->command->info("\n" . '.... Seeding SETTINGS completed successfully!');
+
         User::factory()->create([
             'name'  => 'saber',
             'email' => 'saber@tds.com',
@@ -28,7 +35,6 @@ class DatabaseSeeder extends Seeder
             'type'      => 'admin',
             'password'  => bcrypt('12345678'),
         ]);
-        
         $this->command->info("\n" . '.... Seeding SABER completed successfully!');
 
         User::factory()->createMany([

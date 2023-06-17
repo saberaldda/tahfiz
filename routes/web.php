@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -55,5 +56,7 @@ Route::prefix('admin')
         Route::resource('courses', CourseController::class)->only('index', 'edit');
         // Paths
         Route::resource('paths', PathController::class)->only('index', 'edit');
+        // Settings
+        Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
 
     });
