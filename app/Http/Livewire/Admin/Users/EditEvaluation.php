@@ -48,22 +48,28 @@ class EditEvaluation extends Component
     public function activitiesList()
     {
         $date = $this->date;
-
+    
         if (!$this->user) {
-            return $activitiesList = [];
+            return [];
         }
-
+    
         $user = User::find($this->user);
-
+    
         $activitiesList = Activity::whereIn('id', function ($query) use ($user, $date) {
             $query->select('activity_id')
                 ->from('points')
                 ->where('user_id', $user->id)
                 ->where('date', $date);
-        })->get();
-
+        })
+        ->with(['points' => function ($query) use ($user, $date) {
+            $query->select('activity_id', 'activity_option_id')
+                ->where('user_id', $user->id)
+                ->where('date', $date);
+        }])
+        ->get();
+    
         return $activitiesList;
-    }
+    }   
 
     public function render()
     {
