@@ -40,6 +40,7 @@ class EditEvaluation extends Component
         // ->when(!Carbon::parse($this->date)->isThursday(), function ($query) {
         //     $query->havingRaw('points_count < (SELECT COUNT(*) - 1 FROM activities)');
         // })
+        ->orderBy('name')
         ->get();
 
         return $usersList;
