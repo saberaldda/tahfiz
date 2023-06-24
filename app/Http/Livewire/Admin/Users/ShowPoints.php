@@ -22,8 +22,11 @@ class ShowPoints extends Component
     {
         $users = User::with('points.activity.activityOptions')
         ->where('type', 'student')
+        ->orderBy('name')
         ->get();
+
         $activities = Activity::all();
+
         $points_date = Point::withoutGlobalScope(PointsDateScope::class)->distinct('date')->get('date');
 
         $points = Point::withoutGlobalScope(PointsDateScope::class)->with('activity.activityOptions')
