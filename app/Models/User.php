@@ -34,7 +34,7 @@ class User extends Authenticatable
         if (stripos($this->photo, 'http') === 0) {
             return $this->photo;
         }
-        return asset('storage/'. '/' . $this->photo);
+        return asset(url('storage/'). '/' . $this->photo);
     }
 
     public function points()
