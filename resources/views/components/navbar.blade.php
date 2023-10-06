@@ -27,7 +27,7 @@
         {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">{{ __('Users') }}</span></li> --}}
         <li class="menu-item {{ str_contains(request()->url(), 'users') ? 'open active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Users">{{ __('Users') }}</div>
             </a>
             <ul class="menu-sub">
@@ -63,15 +63,10 @@
             </ul>
         </li>
         <li class="menu-item {{ str_contains(request()->url(), 'settings') ? 'open active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Users">{{ __('الاعدادات') }}</div>
+            <a href="{{ route('settings.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Settings">{{ __('Settings') }}</div>
             </a>
-            <li class="menu-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
-                <a href="{{ route('settings.index') }}" class="menu-link">
-                    <div data-i18n="Users">{{ __('قائمة الاعدادات') }}</div>
-                </a>
-            </li>
         </li>
     </ul>
     
