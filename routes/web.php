@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +38,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('dashboard', function () {
         return redirect()->route('users.index');
-        })->middleware(['auth', 'verified'])->name('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+    // Profile
+    Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
+    
     // Users
     Route::resource('users', UserController::class)->only('index', 'edit');
     Route::get('users/evaluation', [UserController::class, 'evaluation'])->name('users.evaluation');
