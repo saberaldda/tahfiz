@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\ActivityOptionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -47,10 +49,12 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('users/evaluation', [UserController::class, 'evaluation'])->name('users.evaluation');
     Route::get('users/evaluation/update', [UserController::class, 'editEvaluation'])->name('users.evaluation.edit');
     Route::get('users/points-table', [UserController::class, 'showPoints'])->name('users.points.show');
-    // Courses
-    Route::resource('courses', CourseController::class)->only('index', 'edit');
-    // Paths
-    Route::resource('paths', PathController::class)->only('index', 'edit');
+    // Activities
+    Route::resource('activities', ActivityController::class)->only('index', 'edit');
+    Route::resource('activities/{activity}/options', ActivityOptionController::class)->only('index', 'edit')->names([
+        'index' => 'activities.options.index',
+        'edit' => 'activities.options.edit',
+    ]);
     // Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
 

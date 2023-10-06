@@ -61,7 +61,7 @@
                             <th>{{ __('النقاط') }}</th>
                             <th>{{ __('User Type') }}</th>
                             <th>{{ __('Status') }}</th>
-                            <th>{{ __('Create Date') }}</th>
+                            <th>{{ __('Created Date') }}</th>
                             <th>{{ __('Actions') }}</th>
                         </tr>
                     </thead>
