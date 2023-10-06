@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'type'  => fake()->randomElement(User::TYPES),
-            'photo' => fake()->imageUrl(),
+            // 'photo' => fake()->imageUrl(),
             'date_of_birth' => fake()->dateTimeBetween('-15 years', '-5 years'),
             'note' => fake()->words(5, true),
             'email_verified_at' => now(),

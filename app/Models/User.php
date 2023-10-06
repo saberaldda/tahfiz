@@ -29,7 +29,7 @@ class User extends Authenticatable
     public function getFullPhotoPathAttribute()
     {
         if (!$this->photo) {
-            return asset('https://via.placeholder.com/400x400.png/89edff?text=Placeholder');
+            return asset('assets/admin/img/favicon/omar.png');
         }
         if (stripos($this->photo, 'http') === 0) {
             return $this->photo;
