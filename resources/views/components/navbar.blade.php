@@ -24,7 +24,6 @@
         </li>
     
         <!-- Users -->
-        {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">{{ __('Users') }}</span></li> --}}
         <li class="menu-item {{ str_contains(request()->url(), 'users') ? 'open active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-user"></i>
@@ -62,6 +61,14 @@
                 </li>
             </ul>
         </li>
+        <!-- Activities -->
+        <li class="menu-item {{ str_contains(request()->url(), 'activities') ? 'open active' : '' }}">
+            <a href="{{ route('activities.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-calendar-check"></i>
+                <div data-i18n="Activities">{{ __('Activities') }}</div>
+            </a>
+        </li>
+        <!-- Settings -->
         <li class="menu-item {{ str_contains(request()->url(), 'settings') ? 'open active' : '' }}">
             <a href="{{ route('settings.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
