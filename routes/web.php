@@ -37,6 +37,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return redirect()->route('users.index');
         })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/admin', function () { return redirect()->route('dashboard'); });
     // Users
     Route::resource('users', UserController::class)->only('index', 'edit');
     Route::get('users/evaluation', [UserController::class, 'evaluation'])->name('users.evaluation');
