@@ -97,12 +97,6 @@
                                     <a href="https://github.com/saberaldda" target="_blank"
                                         class="footer-link fw-bolder">Saber Al-Dada</a>
                                 </div>
-                                <div>
-                                    <a href="" class="footer-link me-4"
-                                        target="_blank">License</a>
-                                    <a href="https://github.com/saberaldda"
-                                        target="_blank" class="footer-link me-4">Support</a>
-                                </div>
                             </div>
                         </footer>
                         <!-- / Footer -->

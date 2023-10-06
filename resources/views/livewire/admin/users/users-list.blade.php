@@ -1,10 +1,9 @@
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">{{ __('Users') }} /</span> {{ __('Users list') }}</h4>
     <div class="card">
         <div class="card mb-3">
             <div class="card-header border-bottom">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">{{ __('Search Filter') }} </h5>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">{{ __('Users') }} /</span> {{ __('Users list') }}</h4>
                     <div class="d-flex ms-auto">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUser"> {{ __('Add new User') }} </button>
                     </div>
@@ -59,7 +58,6 @@
                         <tr>
                             <th>{{ __('Photo') }}</th>
                             <th>{{ __('Name') }}</th>
-                            {{-- <th>{{ __('Email') }}</th> --}}
                             <th>{{ __('النقاط') }}</th>
                             <th>{{ __('User Type') }}</th>
                             <th>{{ __('Status') }}</th>
@@ -70,7 +68,7 @@
                     <tbody class="table-border-bottom-0">
                         @foreach ($users as $user)
                             <tr>
-                                <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}">
+                                <td>
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="{{ __('tooltip-custom') }}" data-bs-placement="top"
                                             class="avatar avatar-lg pull-up" title="{{ $user->name }}">
@@ -78,11 +76,11 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}">{{ $user->name }}</td>
-                                {{-- <td class="clickable-tr" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}"><strong>{{ $user->email }}</strong></td> --}}
+                                <td>{{ $user->name }}</td>
                                 <td>{{ $user->total_points }}</td>
-                                <td><span class="badge bg-label-{{ ($user->type == "admin") ? "danger" : (($user->type == "teacher") ? "success" : "info") }} me-1">
-                                    <strong>{{ __($user->type) }}</strong>
+                                <td>
+                                    <span class="badge bg-label-{{ ($user->type == "admin") ? "danger" : (($user->type == "teacher") ? "success" : "info") }} me-1">
+                                        <strong>{{ __($user->type) }}</strong>
                                     </span>
                                 </td>
                                 <td>
@@ -94,25 +92,19 @@
                                 </td>
                                 <td>{{ $user->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('users.evaluation') }}">
-                                                <i class="bx bx-edit-alt me-1"></i>
-                                                {{ __('اضافة تقييم') }}
+                                    <div class="d-flex">
+                                        <a class="btn btn-link p-0 me-3" data-bs-toggle="modal" data-bs-target="#showUser{{$user->id}}">
+                                            <i class="bx bx-show"></i>
+                                        </a>
+                                        <a class="btn btn-link p-0 me-3" href="{{ route('users.edit', ['user' => $user->id]) }}">
+                                            <i class="bx bx-edit-alt"></i>
+                                        </a>
+                                        @if (auth()->user()->type == 'admin')
+                                            <a wire:click="delete({{ $user->id }})" onclick="return confirm('{{ __('Are you sure you want to delete the user?') }}') || event.stopImmediatePropagation()" 
+                                                class="btn btn-link p-0 text-danger">
+                                                <i class="bx bx-trash"></i>
                                             </a>
-                                            <a class="dropdown-item" href="{{ route('users.edit', ['user' => $user->id]) }}">
-                                                <i class="bx bx-edit-alt me-1"></i>
-                                                {{ __('Edit') }}
-                                            </a>
-                                            <a wire:click="delete({{ $user->id }})" onclick="return confirm('{{ __('Are you sure you want to delete user?') }}') 
-                                                || event.stopImmediatePropagation()" 
-                                                class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                            {{ __('Delete') }}
-                                            </a>
-                                        </div>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
