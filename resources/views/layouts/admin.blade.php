@@ -12,7 +12,7 @@
         <meta name="description" content="" />
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/admin/img/favicon/albayan.png') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset(config('app.icon')) }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
