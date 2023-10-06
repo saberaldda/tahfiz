@@ -18,7 +18,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'icon' => asset('assets/admin/img/favicon/omar.png'),
+    'icon' => 'assets/admin/img/favicon/omar.png',
 
     /*
     |--------------------------------------------------------------------------
