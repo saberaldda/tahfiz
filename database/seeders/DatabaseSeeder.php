@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
             'name'      => 'admin',
             'email'     => 'admin@gmail.com',
             'type'      => 'admin',
-            'password'  => bcrypt('12345678'),
         ]);
         $this->command->info("\n" . '.... Seeding SABER completed successfully!');
 
