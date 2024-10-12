@@ -56,7 +56,7 @@
                 </li>
                 <li class="menu-item {{ request()->routeIs('users.points.show') ? 'active' : '' }}">
                     <a href="{{ route('users.points.show') }}" class="menu-link">
-                        <div data-i18n="add-new-user">{{ __('جدول التقييمات') }}</div>
+                        <div data-i18n="add-new-user">{{ __('سجل التقييمات') }}</div>
                     </a>
                 </li>
             </ul>
